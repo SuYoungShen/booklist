@@ -39,22 +39,6 @@
   <body>
     <div class="container-fluid">
       <form class="form-horizontal" role="form" action="action/insert.php" method="post">
-        
-        <!-- types類型 -->
-        <div class="form-group">
-          <label for="Recipient" class="col-sm-2 control-label">類型</label>
-          <div class="col-sm-5">
-            <select class="selectpicker" name="types">
-              <optgroup label="書的類型">
-                <option value="語言學習類">語言學習類</option>
-                <option value="商業類、科技類">商業類、科技類</option>
-                <option value="旅遊、時尚流行類">旅遊、時尚流行類</option>
-                <option value="人文藝術、其它類">人文藝術、其它類</option>
-              </optgroup>
-            </select>
-          </div>
-        </div>
-        <!-- types類型 -->
 
         <!--BookName書名-->
         <div class="form-group">
