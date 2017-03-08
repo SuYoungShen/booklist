@@ -40,22 +40,24 @@
     <div class="container-fluid">
       <form class="form-horizontal" role="form" action="action/insert.php" method="post">
 
-        <!--BookName書名-->
+        <!--Shelf_Number 架號-->
         <div class="form-group">
-          <label for="Recipient" class="col-sm-2 control-label">書名</label>
+          <label for="Recipient" class="col-sm-2 control-label">架號</label>
           <div class="col-sm-5">
-            <input type="text" class="form-control" name="BookName" id="BookName" placeholder="輸入書名">
+            <input type="text" class="form-control" name="Shelf_Number" id="Shelf_Number" placeholder="輸入架號">
           </div>
         </div>
-        <!--BookName書名-->
-        <!-- Address 地址-->
+        <!--Shelf_Number 架號-->
+
+        <!-- Journal 刊名-->
         <div class="form-group">
-          <label for="Address" class="col-sm-2 control-label">網址</label>
+          <label for="Address" class="col-sm-2 control-label">刊名</label>
           <div class="col-sm-5">
-            <input type="url" class="form-control" name="Url" id="Url" placeholder="輸入網址">
+            <input type="text" class="form-control" name="Journal" id="Journal" placeholder="輸入刊名">
           </div>
         </div>
-        <!-- Address 地址-->
+        <!-- Journal 刊名-->
+
 
         <div class="form-group">
           <div class="col-sm-offset-2 col-sm-10">
