@@ -27,9 +27,8 @@
       // $Source = $_POST["Source"];//來源
 
       switch ($Status) {
-        case 'Insert':
-        // return Selects($db);
-         $this->Selects($dbs);
+        case 'Insert':        
+         return $this->Selects($dbs);
           break;
 
         default:

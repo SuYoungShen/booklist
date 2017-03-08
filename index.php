@@ -40,7 +40,8 @@
         // $InSql = $Sql->Inserts();
         $Insert = $_POST["Insert"] = "Insert";
         // var_dump($Sql->Variables($db, $Insert));
-       $Sql->Variables($db, $Insert);
+       $Dis = $Sql->Variables($db, $Insert);
+       var_dump($Dis);
         //  echo $Shelf_Number;
       }
      ?>
