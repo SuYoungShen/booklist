@@ -34,11 +34,24 @@
     <!-- <script type="text/javascript" src="js/verification.js"></script> -->
     <?php
       include 'connect/connect.php';
+      $Sql = new Sql();
+
+      if (isset($_POST["Insert"])) {
+        // $InSql = $Sql->Inserts();
+        $Insert = $_POST["Insert"] = "Insert";
+        // var_dump($Sql->Variables($db, $Insert));
+       $Sql->Variables($db, $Insert);
+        //  echo $Shelf_Number;
+      }
      ?>
   </head>
   <body>
     <div class="container-fluid">
-      <form class="form-horizontal" role="form" action="action/insert.php" method="post">
+      <form class="form-horizontal" role="form" method="post">
+        <!-- 按送出後會執行新增指令,指令在connect/connect.php -->
+        <div class="form-group">
+          <h1 class="text-center">期刊整理系統</h1>
+        </div>
 
         <!--Shelf_Number 架號-->
         <div class="form-group">
@@ -58,10 +71,54 @@
         </div>
         <!-- Journal 刊名-->
 
+        <!-- Classification 刊別-->
+        <div class="form-group">
+          <label for="Address" class="col-sm-2 control-label">刊別</label>
+          <div class="col-sm-5">
+            <input type="text" class="form-control" name="Classification" id="Classification" placeholder="輸入刊別">
+          </div>
+        </div>
+        <!-- Classification 刊別-->
+
+        <!-- Language 語言-->
+        <div class="form-group">
+          <label for="Address" class="col-sm-2 control-label">語言</label>
+          <div class="col-sm-5">
+            <input type="text" class="form-control" name="Language" id="Language" placeholder="輸入語言">
+          </div>
+        </div>
+        <!-- Language 語言-->
+
+        <!-- Budget 預算科別-->
+        <div class="form-group">
+          <label for="Address" class="col-sm-2 control-label">預算科別</label>
+          <div class="col-sm-5">
+            <input type="text" class="form-control" name="Budget" id="Budget" placeholder="輸入預算科別">
+          </div>
+        </div>
+        <!-- Budget 預算科別-->
+
+        <!-- Money 金額-->
+        <div class="form-group">
+          <label for="Address" class="col-sm-2 control-label">金額</label>
+          <div class="col-sm-5">
+            <input type="text" class="form-control" name="Money" id="Money" placeholder="輸入金額">
+          </div>
+        </div>
+        <!-- Money 金額-->
+
+        <!-- Source 來源-->
+        <div class="form-group">
+          <label for="Address" class="col-sm-2 control-label">來源</label>
+          <div class="col-sm-5">
+            <input type="text" class="form-control" name="Source" id="Source" placeholder="輸入來源">
+          </div>
+        </div>
+        <!-- Source 金額-->
 
         <div class="form-group">
           <div class="col-sm-offset-2 col-sm-10">
-            <button type="submit" id="submit" class="btn btn-default">送出</button>
+            <button type="submit" id="submit" name="Insert" class="btn btn-default">送出</button>
             <a href="show.php">
               <button type="button" class="btn btn-default">搜尋</button>
             </a>
