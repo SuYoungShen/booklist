@@ -39,7 +39,7 @@
   <body>
     <div class="container-fluid">
       <form class="form-horizontal" role="form" action="action/insert.php" method="post">
-
+        
         <!-- types類型 -->
         <div class="form-group">
           <label for="Recipient" class="col-sm-2 control-label">類型</label>
@@ -84,7 +84,7 @@
         </div>
       </form>
     </div>
-    
+
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
     <!-- Include all compiled plugins (below), or include individual files as needed -->
