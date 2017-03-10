@@ -41,7 +41,7 @@
         $Insert = $_POST["Insert"] = "Insert";
         // var_dump($Sql->Variables($db, $Insert));
        $Dis = $Sql->Variables($db, $Insert);
-       var_dump($Dis);
+      //  var_dump($Dis);
         //  echo $Shelf_Number;
       }
      ?>
@@ -72,14 +72,23 @@
         </div>
         <!-- Journal 刊名-->
 
-        <!-- Classification 刊別-->
+        <!-- Classification 分類號-->
+        <div class="form-group">
+          <label for="Address" class="col-sm-2 control-label">分類號</label>
+          <div class="col-sm-5">
+            <input type="text" class="form-control" name="Classification" id="Classification" placeholder="輸入分類號">
+          </div>
+        </div>
+        <!-- Classification 分類號-->
+
+        <!-- Publication 刊別-->
         <div class="form-group">
           <label for="Address" class="col-sm-2 control-label">刊別</label>
           <div class="col-sm-5">
-            <input type="text" class="form-control" name="Classification" id="Classification" placeholder="輸入刊別">
+            <input type="text" class="form-control" name="Publication" id="Publication" placeholder="輸入刊別">
           </div>
         </div>
-        <!-- Classification 刊別-->
+        <!-- Publication 刊別-->
 
         <!-- Language 語言-->
         <div class="form-group">
