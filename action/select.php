@@ -4,10 +4,11 @@
   date_default_timezone_set('Asia/Taipei');//設定時間為台北
 
   if (isset($_GET["datetime"])) {//如果有選擇日期$datetime就等於選擇的值,下拉會用到
-    $datetime = $_GET["datetime"];
+    $datetimes = $_GET["datetime"];
   }else {
-    $datetime = date("Y");//時間
+    $datetimes = date("Y");//時間
   }
+
   $Sql = new Sql();
   $DisDate = $Sql->SeDates($db);
   //以日期當條件,取得全部資料
