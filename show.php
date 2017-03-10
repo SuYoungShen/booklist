@@ -81,7 +81,6 @@
           <thead>
             <tr>
               <td><?php echo $datetimes; ?></td>
-              <td><?php echo $datetimes; ?></td>
               <td>語言學習類</td>
               <td>商業類、科技類</td>
               <td>旅遊、時尚流行類</td>
