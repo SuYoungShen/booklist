@@ -34,7 +34,7 @@
       switch ($Status) {
         case 'Insert':
          $this->Inserts(
-                        $Shelf_Number, $Journal, $Classification, $Publication,
+                        $dbs, $Shelf_Number, $Journal, $Classification, $Publication,
                         $Language, $Budget, $Money, $Source, $datetime
                       );
         //  return $this->Inserts();
@@ -49,7 +49,7 @@
 
     //新增
     function Inserts(
-                      $Shelf_Number, $Journal, $Classification, $Publication,
+                      $dbs, $Shelf_Number, $Journal, $Classification, $Publication,
                       $Language, $Budget, $Money, $Source, $datetime){
 
       $SqlInsert = "
@@ -75,20 +75,20 @@
                                           '".$datetime."'
                                           )";
 
-      $TrueQu = $SqlQuery = $db->query($SqlInsert);
+      $TrueQu = $SqlQuery = $dbs->query($SqlInsert);
 
         if ($TrueQu) {
           echo "
           <script>
           alert('新增成功');
-          document.location.href='../index.php';
+          document.location.href='index.php';
           </script>
           ";
         }else {
         echo "
         <script>
         alert('賣亂');
-        document.location.href='../index.php';
+        document.location.href='index.php';
         </script>
         ";
       }
