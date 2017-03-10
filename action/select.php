@@ -8,17 +8,18 @@
   }else {
     $datetime = date("Y");//時間
   }
-
+  $Sql = new Sql();
+  $DisDate = $Sql->SeDates($db);
   //以日期當條件,取得全部資料
-  $Select = "SELECT * FROM bookname WHERE datetime='".$datetime."'";
-  $Query = $db->query($Select);
-  $Display = $Query->fetchAll();
+  // $Select = "SELECT * FROM bookname WHERE datetime='".$datetime."'";
+  // $Query = $db->query($Select);
+  // $Display = $Query->fetchAll();
   //以日期當條件,取得全部資料
 
   //下拉顯示日期,Group by日期有重複值只會顯示一筆
-  $SeDate = "SELECT datetime FROM bookname GROUP BY datetime";
-  $QuDate = $db->query($SeDate);
-  $DisDate = $QuDate->fetchAll();
+  // $SeDate = "SELECT datetime FROM bookname GROUP BY datetime";
+  // $QuDate = $db->query($SeDate);
+  // $DisDate = $QuDate->fetchAll();
   //下拉顯示日期,Group by日期有重複值只會顯示一筆
 
  ?>

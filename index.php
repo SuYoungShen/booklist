@@ -37,12 +37,11 @@
       $Sql = new Sql();
 
       if (isset($_POST["Insert"])) {
-        // $InSql = $Sql->Inserts();
         $Insert = $_POST["Insert"] = "Insert";
-        // var_dump($Sql->Variables($db, $Insert));
-       $Dis = $Sql->Variables($db, $Insert);
-      //  var_dump($Dis);
-        //  echo $Shelf_Number;
+        //當按submit出去後,先叫出Variables function,位置在connect/connect.php
+        $Dis = $Sql->Variables($db, $Insert);
+        //當按submit出去後,先叫出Variables function,位置在connect/connect.php
+        
       }
      ?>
   </head>

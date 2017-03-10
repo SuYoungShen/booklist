@@ -17,6 +17,7 @@
     //宣告post變數
     function Variables($db, $Button){//$Button存入的是新增或刪除或查詢的值
 
+      //儲存指定變數
       $dbs = $db;//連線
       $Status = $Button;//存入狀態值
       $Shelf_Number = $_POST["Shelf_Number"];//架號
@@ -29,15 +30,15 @@
       $Source = $_POST["Source"];//來源
       date_default_timezone_set('Asia/Taipei');//設定時間為台北
       $datetime = date("Y-m-d H:i:s");//時間
+      //儲存指定變數
 
-      //值存入指定變數
+      //$status用來判斷sumit是做新增 刪除 查詢 更新
       switch ($Status) {
         case 'Insert':
          $this->Inserts(
                         $dbs, $Shelf_Number, $Journal, $Classification, $Publication,
                         $Language, $Budget, $Money, $Source, $datetime
                       );
-        //  return $this->Inserts();
           break;
 
         default:
@@ -47,7 +48,7 @@
     }
     //宣告post變數
 
-    //新增
+    //新增到資料庫
     function Inserts(
                       $dbs, $Shelf_Number, $Journal, $Classification, $Publication,
                       $Language, $Budget, $Money, $Source, $datetime){
@@ -92,9 +93,8 @@
         </script>
         ";
       }
-
     }
-    //新增
+    //新增到資料庫
 
     //查詢
     function Selects($db){
@@ -116,6 +116,15 @@
 
     }
     //更新
+
+    //查詢年分
+    function SeDates($db){
+      $SeDate = "SELECT datetime FROM booklist GROUP BY datetime";
+      $QuDate = $db->query($SeDate);
+      $DisDate = $QuDate->fetchAll();
+      return $DisDate;
+    }
+    //查詢年分
   }
 
 
