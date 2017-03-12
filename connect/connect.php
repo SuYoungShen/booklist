@@ -96,14 +96,14 @@
     }
     //新增到資料庫
 
-    //查詢
+    //查詢全部資料
     function Selects($db){
       $SeSql = "SELECT * FROM `booklist` WHERE 1";
       $SeQu = $db->query($SeSql);
       $SeDis = $SeQu->fetchAll();
       return $SeDis;
     }
-    //查詢
+    //查詢全部資料
 
     //刪除
     function Deletes(){
@@ -117,14 +117,26 @@
     }
     //更新
 
-    //查詢年分
+    //下拉顯示日期,Group by日期有重複值只會顯示一筆
     function SeDates($db){
       $SeDate = "SELECT datetime FROM booklist GROUP BY datetime";
       $QuDate = $db->query($SeDate);
       $DisDate = $QuDate->fetchAll();
       return $DisDate;
     }
-    //查詢年分
+    //下拉顯示日期,Group by日期有重複值只會顯示一筆
+
+    //以日期當條件,取得全部資料
+    function Se_Date_Data($db, $datetime){
+      $Select = "SELECT `Id`, `Shelf_Number`, `Journal`, `Classification`,
+                        `Publication`, `Language`, `Budget`, `Money`, `Source`
+                   FROM `booklist` WHERE '".$datetime."'";
+      $Query = $db->query($Select);
+      $Display = $Query->fetchAll();
+      return $Display;
+    }
+    //以日期當條件,取得全部資料
+
   }
 
 

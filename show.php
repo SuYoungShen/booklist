@@ -69,6 +69,7 @@
                     ";
                   }
                 }
+                //$DisDate從action/select.php的檔案出來
                ?>
             </ul>
           </div>
@@ -81,10 +82,14 @@
           <thead>
             <tr>
               <td><?php echo $datetimes; ?></td>
-              <td>語言學習類</td>
-              <td>商業類、科技類</td>
-              <td>旅遊、時尚流行類</td>
-              <td>人文藝術、其它類</td>
+              <td>架號</td>
+              <td>刊名</td>
+              <td>分類號</td>
+              <td>刊別</td>
+              <td>語言</td>
+              <td>預算科別</td>
+              <td>金額</td>
+              <td>來源</td>
             </tr>
           </thead>
           <tbody>

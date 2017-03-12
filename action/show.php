@@ -1,21 +1,21 @@
 <?php
-  include 'bubble_sort.php';
+  // include 'bubble_sort.php';
 
-  $Language = array();// 語言
-  $LanUrl = array();// 語言網址
-  $LanId = array();// 語言id
-
-  $Technology = array();// 科技
-  $TecUrl = array();// 科技網址
-  $TecId = array();// 科技id
-
-  $Tour = array();// 旅遊
-  $TourUrl = array();// 旅遊網址
-  $TourId = array();// 旅遊ID
-
-  $Other = array();// 其他
-  $OtherUrl = array();// 其他網址
-  $OtherId = array();// 其他ID
+  // $Language = array();// 語言
+  // $LanUrl = array();// 語言網址
+  // $LanId = array();// 語言id
+  //
+  // $Technology = array();// 科技
+  // $TecUrl = array();// 科技網址
+  // $TecId = array();// 科技id
+  //
+  // $Tour = array();// 旅遊
+  // $TourUrl = array();// 旅遊網址
+  // $TourId = array();// 旅遊ID
+  //
+  // $Other = array();// 其他
+  // $OtherUrl = array();// 其他網址
+  // $OtherId = array();// 其他ID
 
 // foreach ($Display as $key => $value) {
 //   $id = $value["id"];//id
@@ -90,6 +90,51 @@
 //     </tr>
 //     ";
 //   }
+
+//$Dis_Date_Data在action/select.php
+foreach ($Dis_Date_Data as $key => $value) {
+  
+  $Shelf_Number = $_POST["Shelf_Number"];//架號
+  $Journal = $_POST["Journal"];//刊名
+  $Classification = $_POST["Classification"];//分類號
+  $Publication = $_POST["Publication"];//刊別
+  $Language = $_POST["Language"];//語言
+  $Budget = $_POST["Budget"];//預算科別
+  $Money = $_POST["Money"];//金額
+  $Source = $_POST["Source"];//來源
+
+  echo "<tr>";
+  echo "
+    <td  data-toggle='modal' data-target='#exampleModal' data-whatever='@mdo'>
+      <a href='$value[Id]'>$value[Id]</a>
+    </td>
+    <td  data-toggle='modal' data-target='#exampleModal' data-whatever='@mdo'>
+      <a href='$value[Id]'>$value[Id]</a>
+    </td>
+    <td  data-toggle='modal' data-target='#exampleModal' data-whatever='@mdo'>
+      <a href='$value[Id]'>$value[Id]</a>
+    </td>
+    <td  data-toggle='modal' data-target='#exampleModal' data-whatever='@mdo'>
+      <a href='$value[Id]'>$value[Id]</a>
+    </td>
+    <td  data-toggle='modal' data-target='#exampleModal' data-whatever='@mdo'>
+      <a href='$value[Id]'>$value[Id]</a>
+    </td>
+    <td  data-toggle='modal' data-target='#exampleModal' data-whatever='@mdo'>
+      <a href='$value[Id]'>$value[Id]</a>
+    </td>
+    <td  data-toggle='modal' data-target='#exampleModal' data-whatever='@mdo'>
+      <a href='$value[Id]'>$value[Id]</a>
+    </td>
+    <td  data-toggle='modal' data-target='#exampleModal' data-whatever='@mdo'>
+      <a href='$value[Id]'>$value[Id]</a>
+    </td>
+    <td  data-toggle='modal' data-target='#exampleModal' data-whatever='@mdo'>
+      <a href='$value[Id]'>$value[Id]</a>
+    </td>";
+  echo "</tr>";
+}
+//$Dis_Date_Data在action/select.php
 
 // 顯示所有資料,當td被觸及時,可以做更新資料
 

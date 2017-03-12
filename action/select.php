@@ -10,7 +10,15 @@
   }
 
   $Sql = new Sql();
+
+  //下拉顯示日期,Group by日期有重複值只會顯示一筆
   $DisDate = $Sql->SeDates($db);
+  //下拉顯示日期,Group by日期有重複值只會顯示一筆
+
+  //以日期當條件,取得全部資料
+  $Dis_Date_Data = $Sql->Se_Date_Data($db, $datetimes);
+  //以日期當條件,取得全部資料
+
   //以日期當條件,取得全部資料
   // $Select = "SELECT * FROM bookname WHERE datetime='".$datetime."'";
   // $Query = $db->query($Select);
