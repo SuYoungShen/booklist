@@ -93,50 +93,93 @@
 
 //$Dis_Date_Data在action/select.php
 foreach ($Dis_Date_Data as $key => $value) {
-  
-  $Shelf_Number = $_POST["Shelf_Number"];//架號
-  $Journal = $_POST["Journal"];//刊名
-  $Classification = $_POST["Classification"];//分類號
-  $Publication = $_POST["Publication"];//刊別
-  $Language = $_POST["Language"];//語言
-  $Budget = $_POST["Budget"];//預算科別
-  $Money = $_POST["Money"];//金額
-  $Source = $_POST["Source"];//來源
 
-  echo "<tr>";
-  echo "
-    <td  data-toggle='modal' data-target='#exampleModal' data-whatever='@mdo'>
-      <a href='$value[Id]'>$value[Id]</a>
-    </td>
-    <td  data-toggle='modal' data-target='#exampleModal' data-whatever='@mdo'>
-      <a href='$value[Id]'>$value[Id]</a>
-    </td>
-    <td  data-toggle='modal' data-target='#exampleModal' data-whatever='@mdo'>
-      <a href='$value[Id]'>$value[Id]</a>
-    </td>
-    <td  data-toggle='modal' data-target='#exampleModal' data-whatever='@mdo'>
-      <a href='$value[Id]'>$value[Id]</a>
-    </td>
-    <td  data-toggle='modal' data-target='#exampleModal' data-whatever='@mdo'>
-      <a href='$value[Id]'>$value[Id]</a>
-    </td>
-    <td  data-toggle='modal' data-target='#exampleModal' data-whatever='@mdo'>
-      <a href='$value[Id]'>$value[Id]</a>
-    </td>
-    <td  data-toggle='modal' data-target='#exampleModal' data-whatever='@mdo'>
-      <a href='$value[Id]'>$value[Id]</a>
-    </td>
-    <td  data-toggle='modal' data-target='#exampleModal' data-whatever='@mdo'>
-      <a href='$value[Id]'>$value[Id]</a>
-    </td>
-    <td  data-toggle='modal' data-target='#exampleModal' data-whatever='@mdo'>
-      <a href='$value[Id]'>$value[Id]</a>
-    </td>";
+  $Id = $value["Id"];//Id
+  $Shelf_Number = $value["Shelf_Number"];//架號
+  $Journal = $value["Journal"];//刊名
+  $Classification = $value["Classification"];//分類號
+  $Publication = $value["Publication"];//刊別
+  $Language = $value["Language"];//語言
+  $Budget = $value["Budget"];//預算科別
+  $Money = $value["Money"];//金額
+  $Source = $value["Source"];//來源
+
+  echo "<tr onclick='Edits(
+    \"$Id\", \"$Shelf_Number\", \"$Journal\", \"$Classification\", \"$Publication\",
+    \"$Language\", \"$Budget\", \"$Money\", \"$Source\")'>";
+
+  //  echo "<tr onclick='Edits(\"$Id\", \"$Shelf_Number\", \"$Journal\")'>";
+
+  // Display($Id);
+  Display("");
+  Display($Shelf_Number);
+  Display($Journal);
+  Display($Classification);
+  Display($Publication);
+  Display($Language);
+  Display($Budget);
+  Display($Money);
+  Display($Source);
+
   echo "</tr>";
 }
 //$Dis_Date_Data在action/select.php
+//當tr被觸及時,以彈跳視窗顯示,可做更新刪除動作
+// $vales = htmlspecialchars($value, ENT_QUOTES);
 
-// 顯示所有資料,當td被觸及時,可以做更新資料
+
+//datatable顯示
+function Display($value){
+
+  $vales = $value;
+
+  echo "
+  <td  data-toggle='modal' data-target='#exampleModal' data-whatever='@mdo'>
+    $vales
+  </td>
+  ";
+}
+//datatable顯示
+
+//html彈跳視窗
+function HtmlModal(){
+  echo "
+  <div class='form-group'>
+    <label for='recipient-name' class='control-label'>架號:</label>
+    <input type='text' name='Id' id='Id'>
+    <input type='text' class='form-control' id='Shelf_Number' name='Shelf_Number'>
+  </div>
+  <div class='form-group'>
+    <label for='recipient-name' class='control-label'>刊名:</label>
+    <input type='text' class='form-control' id='Journal' name='Journal'>
+  </div>
+  <div class='form-group'>
+    <label for='recipient-name' class='control-label'>分類號:</label>
+    <input type='text' class='form-control' id='Classification' name='Classification'>
+  </div>
+  <div class='form-group'>
+    <label for='recipient-name' class='control-label'>刊別:</label>
+    <input type='text' class='form-control' id='Publication' name='Publication'>
+  </div>
+  <div class='form-group'>
+    <label for='recipient-name' class='control-label'>語言:</label>
+    <input type='text' class='form-control' id='Language' name='Language'>
+  </div>
+  <div class='form-group'>
+    <label for='recipient-name' class='control-label'>預算科別:</label>
+    <input type='text' class='form-control' id='Budget' name='Budget'>
+  </div>
+  <div class='form-group'>
+    <label for='recipient-name' class='control-label'>金額:</label>
+    <input type='text' class='form-control' id='Money' name='Money'>
+  </div>
+  <div class='form-group'>
+    <label for='recipient-name' class='control-label'>來源:</label>
+    <input type='text' class='form-control' id='Source' name='Source'>
+  </div>
+  ";
+}
+//html彈跳視窗
 
  ?>
  <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Open modal for @mdo</button>
@@ -144,10 +187,16 @@ foreach ($Dis_Date_Data as $key => $value) {
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@twbootstrap">Open modal for @twbootstrap</button>
 ...more buttons... -->
 <script type="text/javascript">
-  function edit(id, bookname, url){
-    document.getElementById("id").value = id;
-    document.getElementById("BookName").value = bookname;
-    document.getElementById("url").value = url;
+  function Edits(Id, Shelf_Number, Journal, Classification, Publication, Language, Budget, Money, Source){
+    document.getElementById("Id").value = Id;
+    document.getElementById("Shelf_Number").value = Shelf_Number;
+    document.getElementById("Journal").value = Journal;
+    document.getElementById("Classification").value = Classification;
+    document.getElementById("Publication").value = Publication;
+    document.getElementById("Language").value = Language;
+    document.getElementById("Budget").value = Budget;
+    document.getElementById("Money").value = Money;
+    document.getElementById("Source").value = Source;
   }
 </script>
 
@@ -160,16 +209,9 @@ foreach ($Dis_Date_Data as $key => $value) {
       </div>
       <form role="form" action="action/update.php" method="post">
         <div class="modal-body">
-          <div class="form-group">
-            <label for="recipient-name" class="control-label">書名:</label>
-            <input type="hidden" name="id" id=id>
-            <input type="text" class="form-control" id="BookName" name="BookName">
-          </div>
-          <div class="form-group">
-            <label for="message-text" class="control-label">網址:</label>
-            <input type="text" class="form-control" id="url" name="Url">
-          </div>
+          <?php HtmlModal(); ?>
         </div>
+
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
           <button type="submit" name="Up" class="btn btn-primary">送出</button>
