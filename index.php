@@ -41,9 +41,9 @@
         //當按submit出去後,先叫出Variables function,位置在connect/connect.php
         $Dis = $Sql->Variables($db, $Insert);
         //當按submit出去後,先叫出Variables function,位置在connect/connect.php
-        
       }
      ?>
+     
   </head>
   <body>
     <div class="container-fluid">

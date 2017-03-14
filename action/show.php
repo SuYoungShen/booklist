@@ -90,11 +90,18 @@
 //     </tr>
 //     ";
 //   }
-
+$BackWeb = $_SERVER["PHP_SELF"];//本頁位置
+//判斷更新按鈕是否存在
 if (isset($_POST["Update"])) {
+  //設定$Update的值=Update用於connect裡的switch
   $Update = $_POST["Update"] = "Update";
   //$Sql從action/select.php出來
   $Up = $Sql->Variables($db, $Update);
+
+}else if(isset($_POST["Delete"])){
+
+  $Delete = $_POST["Delete"] = "Delete";
+  $De = $Sql->Variables($db, $Delete);
 }
 
 
@@ -212,7 +219,7 @@ function HtmlModal(){
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">關閉</span></button>
         <h4 class="modal-title" id="exampleModalLabel">更新資料</h4>
       </div>
       <form role="form" method="post">
@@ -223,7 +230,7 @@ function HtmlModal(){
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
           <button type="submit" name="Update" class="btn btn-primary">送出</button>
-          <button type="submit" name="Detele" class="btn btn-danger pull-left">刪除</button>
+          <button type="submit" name="Delete" class="btn btn-danger pull-left">刪除</button>
         </div>
       </form>
     </div>

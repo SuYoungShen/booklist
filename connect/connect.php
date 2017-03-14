@@ -43,11 +43,15 @@
           break;
 
           case 'Update':
-           $this->Updates(
-                          $dbs, $Id, $Shelf_Number, $Journal, $Classification,
-                          $Publication, $Language, $Budget, $Money, $Source, $datetime
-                        );
-            break;
+            $this->Updates(
+              $dbs, $Id, $Shelf_Number, $Journal, $Classification,
+              $Publication, $Language, $Budget, $Money, $Source, $datetime
+            );
+          break;
+
+          case 'Delete':
+            $this->Deletes($dbs, $Id, $Shelf_Number, $Journal);
+          break;
 
         default:
           # code...
@@ -115,8 +119,28 @@
     //查詢全部資料
 
     //刪除
-    function Deletes(){
-
+    function Deletes($dbs, $Id, $Shelf_Number, $Journal){
+      $DeSql = "DELETE FROM `booklist` WHERE
+                                            `Id`='".$Id."' &&
+                                            `Shelf_Number`='".$Shelf_Number."' &&
+                                            `Journal`='".$Journal."'
+                                            ";
+      $DeQu = $dbs->query($DeSql);
+      if ($DeQu) {
+        echo "
+        <script>
+        alert('刪除成功');
+        document.location.href='show.php';
+        </script>
+        ";
+      }else {
+        echo "
+        <script>
+        alert('刪除失敗');
+        document.location.href='show.php';
+        </script>
+        ";
+      }
     }
     //刪除
 
@@ -126,14 +150,30 @@
                       $Publication, $Language, $Budget, $Money, $Source, $datetime){
       $UpSql =
       "UPDATE `booklist` SET
-                          `Shelf_Number`='".$Shelf_Number."',`Journal`='".$Journal."',
+                          `Shelf_Number`='".$Shelf_Number."',
+                          `Journal`='".htmlentities($Journal, ENT_QUOTES, "utf-8")."',
                           `Classification`='".$Classification."',`Publication`='".$Publication."',
                           `Language`='".$Language."',`Budget`='".$Budget."',
                           `Money`='".$Money."',`Source`='".$Source."',
                           `datetime`='".$datetime."' WHERE `Id`='".$Id."'";
 
       $UpQu = $dbs->query($UpSql);
-      
+
+      if ($UpQu) {
+        echo "
+        <script>
+        alert('更新成功');
+        document.location.href='show.php';
+        </script>
+        ";
+      }else {
+      echo "
+      <script>
+      alert('更新失敗');
+      document.location.href='show.php';
+      </script>
+      ";
+    }
 
     }
     //更新
