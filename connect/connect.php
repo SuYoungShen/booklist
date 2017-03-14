@@ -20,6 +20,7 @@
       //儲存指定變數
       $dbs = $db;//連線
       $Status = $Button;//存入狀態值
+      $Id = $_POST["Id"];//Id
       $Shelf_Number = $_POST["Shelf_Number"];//架號
       $Journal = $_POST["Journal"];//刊名
       $Classification = $_POST["Classification"];//分類號
@@ -41,6 +42,13 @@
                       );
           break;
 
+          case 'Update':
+           $this->Updates(
+                          $dbs, $Id, $Shelf_Number, $Journal, $Classification,
+                          $Publication, $Language, $Budget, $Money, $Source, $datetime
+                        );
+            break;
+
         default:
           # code...
           break;
@@ -53,6 +61,7 @@
                       $dbs, $Shelf_Number, $Journal, $Classification, $Publication,
                       $Language, $Budget, $Money, $Source, $datetime){
 
+                      //htmlentities資料庫中有單引號所以轉換html格式
       $SqlInsert = "
                     INSERT INTO `booklist`(
                                           `Shelf_Number`,
@@ -66,7 +75,7 @@
                                           `datetime`
                                           ) VALUES (
                                           '".$Shelf_Number."',
-                                          '".$Journal."',
+                                          '".htmlentities($Journal, ENT_QUOTES, "utf-8")."',
                                           '".$Classification."',
                                           '".$Publication."',
                                           '".$Language."',
@@ -112,7 +121,19 @@
     //刪除
 
     //更新
-    function Updates(){
+    function Updates(
+                      $dbs, $Id, $Shelf_Number, $Journal, $Classification,
+                      $Publication, $Language, $Budget, $Money, $Source, $datetime){
+      $UpSql =
+      "UPDATE `booklist` SET
+                          `Shelf_Number`='".$Shelf_Number."',`Journal`='".$Journal."',
+                          `Classification`='".$Classification."',`Publication`='".$Publication."',
+                          `Language`='".$Language."',`Budget`='".$Budget."',
+                          `Money`='".$Money."',`Source`='".$Source."',
+                          `datetime`='".$datetime."' WHERE `Id`='".$Id."'";
+
+      $UpQu = $dbs->query($UpSql);
+      
 
     }
     //更新

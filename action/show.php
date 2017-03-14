@@ -91,12 +91,20 @@
 //     ";
 //   }
 
+if (isset($_POST["Update"])) {
+  $Update = $_POST["Update"] = "Update";
+  //$Sql從action/select.php出來
+  $Up = $Sql->Variables($db, $Update);
+}
+
+
 //$Dis_Date_Data在action/select.php
 foreach ($Dis_Date_Data as $key => $value) {
 
   $Id = $value["Id"];//Id
   $Shelf_Number = $value["Shelf_Number"];//架號
-  $Journal = $value["Journal"];//刊名
+  $Journal = $value["Journal"];//刊名 htmlentities資料庫中有單引號所以轉換html格式
+  // str_replace($Journal) = $value["Journal"];//刊名
   $Classification = $value["Classification"];//分類號
   $Publication = $value["Publication"];//刊別
   $Language = $value["Language"];//語言
@@ -207,15 +215,15 @@ function HtmlModal(){
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
         <h4 class="modal-title" id="exampleModalLabel">更新資料</h4>
       </div>
-      <form role="form" action="action/update.php" method="post">
+      <form role="form" method="post">
         <div class="modal-body">
           <?php HtmlModal(); ?>
         </div>
 
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="submit" name="Up" class="btn btn-primary">送出</button>
-          <button type="submit" name="De" class="btn btn-danger pull-left">刪除</button>
+          <button type="submit" name="Update" class="btn btn-primary">送出</button>
+          <button type="submit" name="Detele" class="btn btn-danger pull-left">刪除</button>
         </div>
       </form>
     </div>
