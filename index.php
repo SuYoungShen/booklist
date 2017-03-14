@@ -43,11 +43,30 @@
         //當按submit出去後,先叫出Variables function,位置在connect/connect.php
       }
      ?>
-     
+     <!-- 防呆 -->
+     <script type="text/javascript" src="js/foolproof.js"></script>
+     <!-- 防呆 -->
+
+     <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js">
+
+     </script>
+     <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js">
+
+     </script>
+<style media="screen">
+  .error{
+    color:red
+  }
+</style>
+     <script type="text/javascript">
+      
+     </script>
+
+
   </head>
   <body>
     <div class="container-fluid">
-      <form class="form-horizontal" role="form" method="post">
+      <form class="form-horizontal" role="form" method="post" id="form">
         <!-- 按送出後會執行新增指令,指令在connect/connect.php -->
         <div class="form-group">
           <h1 class="text-center">期刊整理系統</h1>

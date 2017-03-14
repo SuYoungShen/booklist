@@ -21,6 +21,7 @@
       $dbs = $db;//連線
       $Status = $Button;//存入狀態值
       $Id = $_POST["Id"];//Id
+      // $Shelf_Number = VJ($_POST["Shelf_Number"]);//架號
       $Shelf_Number = $_POST["Shelf_Number"];//架號
       $Journal = $_POST["Journal"];//刊名
       $Classification = $_POST["Classification"];//分類號
@@ -94,15 +95,15 @@
         if ($TrueQu) {
           echo "
           <script>
-          alert('新增成功');
-          document.location.href='index.php';
+            alert('新增成功');
+            document.location.href='index.php';
           </script>
           ";
         }else {
         echo "
         <script>
-        alert('賣亂');
-        document.location.href='index.php';
+          alert('賣亂');
+          document.location.href='index.php';
         </script>
         ";
       }
