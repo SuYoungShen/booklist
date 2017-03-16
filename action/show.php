@@ -110,7 +110,7 @@ foreach ($Dis_Date_Data as $key => $value) {
 
   $Id = $value["Id"];//Id
   $Shelf_Number = $value["Shelf_Number"];//架號
-  $Journal = $value["Journal"];//刊名 htmlentities資料庫中有單引號所以轉換html格式
+  $Journal = filter_var($value["Journal"],FILTER_SANITIZE_SPECIAL_CHARS);//刊名 filter_var過濾器過濾特定變數;FILTER_SANITIZE_SPECIAL_CHARS 特殊符號轉換成html實體
   // str_replace($Journal) = $value["Journal"];//刊名
   $Classification = $value["Classification"];//分類號
   $Publication = $value["Publication"];//刊別
@@ -120,8 +120,7 @@ foreach ($Dis_Date_Data as $key => $value) {
   $Source = $value["Source"];//來源
 
   echo "<tr onclick='Edits(
-    \"$Id\", \"$Shelf_Number\", \"$Journal\", \"$Classification\", \"$Publication\",
-    \"$Language\", \"$Budget\", \"$Money\", \"$Source\")'>";
+    \"$Id\", \"$Shelf_Number\", \"$Journal\", \"$Classification\", \"$Publication\",\"$Language\", \"$Budget\", \"$Money\", \"$Source\")'>";
 
   //  echo "<tr onclick='Edits(\"$Id\", \"$Shelf_Number\", \"$Journal\")'>";
 
