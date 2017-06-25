@@ -39,14 +39,13 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
+    <?php
+    // 查詢指令
+    include 'action/select.php';
+    // 查詢指令
+    ?>
   </head>
   <body>
-    <?php
-      // 查詢指令
-      include 'action/select.php';
-      // 查詢指令
-     ?>
     <div class="container-fluid">
       <form class="form-horizontal" role="form" method="get">
         <div class="form-group">
