@@ -192,7 +192,7 @@
     function Se_Date_Data($db, $datetime){
       $Select = "SELECT `Id`, `Shelf_Number`, `Journal`, `Classification`,
                         `Publication`, `Language`, `Budget`, `Money`, `Source`
-                   FROM `booklist` WHERE '".$datetime."'";
+                   FROM `booklist` WHERE `datetime` = '".$datetime."'";
       $Query = $db->query($Select);
       $Display = $Query->fetchAll();
       return $Display;
